@@ -10,6 +10,9 @@ export default function Header() {
         <Link style={linkStyle} to="/">
           Home
         </Link>{" "}
+        <Link style={linkStyle} to="/track">
+          Tracker
+        </Link>{" "}
         <Link style={linkStyle} to="/about">
           About
         </Link>{" "}

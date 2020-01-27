@@ -11,6 +11,7 @@ import Login from "./components/auth/Login";
 import About from "./components/pages/About";
 // import uuid from "uuid";
 import axios from "axios";
+import Tracker from "./components/pages/Tracker";
 
 // redirects to /login if user is not authenticated
 function onAuthRequired({ history }) {
@@ -86,6 +87,7 @@ class App extends Component {
                   </React.Fragment>
                 )}
               />
+              <SecureRoute path="/track" component={Tracker} />
               <SecureRoute path="/about" component={About} />
               <SecureRoute path="/contact" component={Contact} />
               <Route
