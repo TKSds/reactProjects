@@ -9,7 +9,6 @@ import Contact from "./components/pages/Contact";
 import Footer from "./components/layout/Footer";
 import Login from "./components/auth/Login";
 import About from "./components/pages/About";
-// import uuid from "uuid";
 import axios from "axios";
 import Tracker from "./components/pages/Tracker";
 

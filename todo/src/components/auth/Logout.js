@@ -7,8 +7,21 @@ class Logout extends Component {
     this.props.auth.logout("/");
   };
 
+  state = { authenticated: null };
+
+  checkAuthentication = async () => {
+    const authenticated = await this.props.auth.isAuthenticated();
+    if (authenticated !== this.state.authenticated) {
+      this.setState({ authenticated });
+    }
+  };
+
+  componentDidUpdate() {
+    this.checkAuthentication();
+  }
+
   render() {
-    return (
+    const showLogoutButton = this.state.authenticated ? (
       <Button
         variant="contained"
         style={{ float: "right" }}
@@ -17,7 +30,11 @@ class Logout extends Component {
       >
         Logout
       </Button>
+    ) : (
+      <React.Fragment />
     );
+
+    return <React.Fragment> {showLogoutButton} </React.Fragment>;
   }
 }
 
