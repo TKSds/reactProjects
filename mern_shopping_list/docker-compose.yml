@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  # This is our nodejs app built using the Dockerfile
+  app:
+    container_name: mern_shopping_list
+    restart: always
+    # Builds the node app docker container from the local Dockerfile created
+    build: .
+    ports:
+      - "5000:5000"
+    # All the services our node app will link to
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/db:/data/db
